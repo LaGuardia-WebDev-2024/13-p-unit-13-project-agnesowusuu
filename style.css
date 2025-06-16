@@ -15,8 +15,47 @@
   margin-top: 10px;
   margin-bottom: 20px;
 }
+@font-face {
+  font-family: curly;
+  src: url("https://cdn.glitch.global/c646d203-7a76-46d4-ab68-014cfce1e245/RASCAL__.TTF?v=1750040299712");
+}
+
+.hi {
+  font-family: curly;}
 
 hr {
   height: 5px;
   background-color: black;
+  
+}
+
+h1:hover{
+  
+  background-color:pink;
+
+}
+
+label{
+    font-style: italic;
+  font-weight: bold; 
+}
+
+select {
+  border-radius: 6px;
+  padding: 4px;
+  background-color: #fff0f5;
+}
+
+
+body{
+  background-color:aliceblue
+    
+}
+
+#movie-result{
+  background-color:lightpink
+}
+
+#book-result{
+  background-color:lightpink
 }
