@@ -1,12 +1,12 @@
 <!-- Unit 13 Project
 Requirements
-[  ] Two Interactive Drop-down Inputs 
-[  ] Two Different jQuery Animation Methods 
-[  ] Add Five CSS Declarations
-[  ] Include Three Images
+[ yes ] Two Interactive Drop-down Inputs 
+[  yes] Two Different jQuery Animation Methods 
+[ yes ] Add Five CSS Declarations
+[ yes ] Include Three Images
 
 Select ONE Additional Feature to Add  
-[ no ] Feature 1 - Google Font
+[ yes ] Feature 1 - Google Font
 [ no ] Feature 2 - Upload a Font
 [ no ] Feature 3 - .mouseover() Method
 [ no ] Feature 4 - :hover Feature 
@@ -21,17 +21,22 @@ Select ONE Additional Feature to Add
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <h1>Quiz About [Me]</h1>
+    <h1 class="hi">Quiz About Agnes 
+    
+      <img src="https://i.pinimg.com/736x/b7/5f/19/b75f197d2082d238178eda8025ee2196.jpg" width="40"/>
+    <img src="https://i.pinimg.com/736x/86/ca/db/86cadbbb980257d0f57b3795b31d8756.jpg" width="40"/>
+      <img src="https://i.pinimg.com/736x/cd/b3/b0/cdb3b0dfe25a792efb391ab9c773b186.jpg" width="30"/>
+    </h1>
     <hr />
     <!-- Movie Question -->
     <form id="movie-form">
       <label>
         🎥 What is my favorite movie?
         <select id="movie-answer">
-          <option value="movie1">movie 1</option>
-          <option value="movie2">movie 2</option>
-          <option value="movie3">movie 3</option>
-          <option value="movie4">movie 4</option>
+          <option value="movie1">Bones and All</option>
+          <option value="movie2">Pulp Fiction </option>
+          <option value="movie3">The Lorax</option>
+          <option value="movie4">Shrek 3</option>
         </select>
       </label>
       <button type="submit">Check Movie Answer</button>
@@ -43,10 +48,10 @@ Select ONE Additional Feature to Add
       <label>
         📖 What is my favorite book?
         <select id="book-answer">
-          <option value="book1">book 1</option>
-          <option value="book2">book 2</option>
-          <option value="book3">book 3</option>
-          <option value="book4">book 4</option>
+          <option value="book1">1984</option>
+          <option value="book2">The Alchemist</option>
+          <option value="book3">To Kill a Mockingbird</option>
+          <option value="book4">Thinking, Fast and Slow</option>
         </select>
       </label>
       <button type="submit">Check Book Answer</button>
@@ -68,6 +73,15 @@ Select ONE Additional Feature to Add
         }
       });
 
+      // Movie Question jQuery Code
+$("#movie-form").on("submit", function (event) {
+  event.preventDefault();
+  $("#movie-result")
+    .fadeOut(200, function () {
+      const answer = $("#movie-answer").val();
+      $(this).text(answer === "movie1" ? "YESSSS!" : "Try Again!").fadeIn(200);
+    });
+});
       //Book Question jQuery Code
       $("#book-form").on("submit", function (event) {
         event.preventDefault();
@@ -79,8 +93,20 @@ Select ONE Additional Feature to Add
           $("#book-result").text("YESSSS!");
         } else {
           $("#book-result").text("Try Again!");
+          
         }
       });
+      
+      $("#book-form").on("submit", function (event) {
+  event.preventDefault();
+  var isCorrect = $("#book-answer").val() === "book1";
+  $("#book-result").slideUp(200, function() {
+    $(this)
+      .text(isCorrect ? "YESSSS!" : "Try Again!")
+      .css("background-color", isCorrect ? "#d4edda" : "#f8d7da")
+      .slideDown(200);
+  });
+});
     </script>
   </body>
 
